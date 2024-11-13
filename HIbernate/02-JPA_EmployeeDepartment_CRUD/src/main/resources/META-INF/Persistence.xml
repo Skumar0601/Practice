@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence xmlns="http://java.sun.com/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://java.sun.com/xml/ns/persistence
+                        http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd" version="2.0">
+    <persistence-unit name="myJpaUnit">
+        <class>com.cts.Employee</class>  <!-- Your Employee entity class -->
+        <properties>
+            <!-- Database connection settings -->
+            <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/test?useSSL=false"/>
+            <property name="javax.persistence.jdbc.user" value="root"/>
+            <property name="javax.persistence.jdbc.password" value="rootroot"/>
+            <property name="javax.persistence.jdbc.driver" value="com.mysql.cj.jdbc.Driver"/>
+
+            <!-- Dialect for MySQL 8 -->
+            <property name="hibernate.dialect" value="org.hibernate.dialect.MySQL8Dialect"/>
+
+            <!-- Automatically update the schema based on entity changes -->
+            <property name="hibernate.hbm2ddl.auto" value="update"/>
+
+            <!-- Display SQL statements in the console (for debugging) -->
+            <property name="hibernate.show_sql" value="true"/>
+
+            <!-- Format the SQL statements for better readability -->
+            <property name="hibernate.format_sql" value="true"/>
+
+            <!-- Manage LOB columns (Large Object types) properly -->
+            <property name="hibernate.jdbc.lob.non_contextual_creation" value="true"/>
+            
+            <!-- Optionally specify the database connection pool configuration -->
+            <!-- <property name="hibernate.c3p0.min_size" value="5"/> -->
+            <!-- <property name="hibernate.c3p0.max_size" value="20"/> -->
+
+        </properties>
+    </persistence-unit>
+</persistence>
